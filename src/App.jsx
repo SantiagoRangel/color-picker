@@ -1,24 +1,14 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
-    /* ------------------------ */
-    /*         Elements         */
-    /* ------------------------ */
     const button = document.getElementById("colorPicker-button");
 
     const result = document.getElementById("colorPicker-result");
 
     const hexCode = document.getElementById("colorPicker-hex");
 
-    /* ------------------------ */
-    /*        Eye Dropper       */
-    /* ------------------------ */
-    // Check for Browser's support
     if (typeof EyeDropper !== "undefined") {
       button.addEventListener("click", async () => {
         try {
@@ -43,32 +33,37 @@ function App() {
   }, []);
   return (
     <>
-      <div className="picker">
-        <div
-          className="color-circles"
-          // style="margin-bottom: 15px"
-        >
-          <div
-            className="color-circle"
-            //  style="background-color: #aa8d00"
-          ></div>
-          <div
-            className="color-circle"
-            //  style="background-color: #fd0a5b"
-          ></div>
-          <div
-            className="color-circle"
-            //  style="background-color: #328f00"
-          ></div>
-          <div
-            className="color-circle"
-            // style="background-color: #004da5"
-          ></div>
+      <div
+        className="picker"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <img
+            src="/eyedropper.svg"
+            style={{ width: "100px", marginBottom: "2rem" }}
+          />
         </div>
-
-        <button id="colorPicker-button">Pick a Color</button>
-        <div id="colorPicker-result"></div>
-        <span id="colorPicker-hex">transparent</span>
+        <button id="colorPicker-button" style={{ marginBottom: "2rem" }}>
+          Pick a Color
+        </button>
+        <div
+          id="colorPicker-result"
+          style={{
+            width: "100px",
+            height: "100px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "50%",
+          }}
+        >
+          <span id="colorPicker-hex">transparent</span>
+        </div>
       </div>
     </>
   );
